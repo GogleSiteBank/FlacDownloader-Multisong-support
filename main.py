@@ -66,7 +66,8 @@ def main():
                 print(f"\u001b[35mSong {x}: {s}")
                 song = (f"https://youtube.com/watch?v=" + str(search(s).to_dict()).replace("[{'id': '", "").split("', 't", 1)[0])
                 songs.append(f"{song}")
-            if input("\u001b[36mThese songs will be downloaded (as FLACs) is this correct(y/n) \u001b[33m").lower() == "y":
+            check = input("\u001b[36mThese songs will be downloaded (as FLACs) is this correct(y/n) \u001b[33m").lower()
+            if check == "y":
                 for song in songs:
                     try:
                         with yt_dlp.YoutubeDL(config) as down:
